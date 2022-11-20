@@ -2,8 +2,8 @@ const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
 const result = document.querySelector("#result");
 
-const endPoint = 16;
-const select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const endPoint = 12;
+const select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 function calResult(){
   console.log(select);
@@ -11,9 +11,9 @@ function calResult(){
   return result;
 }
 
-function setResult(){ 
+function setResult(){
   let point = calResult();
-  const resultName = document.querySelector('.resultName');
+  const resultName = document.querySelector('.resultname');
   resultName.innerHTML = infoList[point].name;
 
   var resultImg = document.createElement('img');
@@ -29,11 +29,11 @@ function setResult(){
 }
 
 function goResult(){
-  qna.style.WebkitAnimation = "fadeOut 2s";
-  qna.style.animation = "fadeOut 2s";
+  qna.style.WebkitAnimation = "fadeOut 1s";
+  qna.style.animation = "fadeOut 1s";
   setTimeout(() => {
-    result.style.WebkitAnimation = "fadeIn 2s";
-    result.style.animation = "fadeIn 2s";
+    result.style.WebkitAnimation = "fadeIn 1s";
+    result.style.animation = "fadeIn 1s";
     setTimeout(() => {
       qna.style.display = "none";
       result.style.display = "block"
