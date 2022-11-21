@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% comment %} <h1 class='text-center' style="margin:100 auto">MOVIE INFORMATION</h1>
+  <hr> {% endcomment %}
+  <div class='container row' style="margin:100 auto;">
+    <div class="col-md-5" style="margin:0 auto;">
+      <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{ movie.poster_path }}" class='card-img-top' alt="그림">
+      <hr>
+      <h4 style='font=weight: bold'> {{ movie.title }}</h4><br>
+      <p> <i class="fas fa-calendar-day text-info"></i> 개봉일 : {{ movie.release_date }}</p>
+      <p> <i class="far fa-star text-info fa-sm"></i> 평점 : {{ movie.vote_average }}</p>
+      <p> <i class="fas fa-film text-info"></i> 장르 : 
+        {% for genre in movie.genres.all %}
+          {{genre.name }}
+        {% endfor %}
+      </p>
+      <p> <i class="fas fa-film text-info"></i> 줄거리 : {{ movie.overview }} </p>
+      <a href="{% url 'movies:index' %}" style="margin:1%;;" class="d-inline">
+        <button type="button" class="btn btn-warning">BACK</button>
+      </a>
+      <hr>
+      <h5 class='d-inline'>평점 목록</h5>
+      {% if comments %}
+        <p class='d-inline'>({{ comments|length }})</p>
+      {% endif %}
+      <ul>
+        {% for comment in comments %}
+          <li>
+            <div class='text-warning d-inline-block'>
+              {% if comment.rank == 1 %}★
+              {% elif comment.rank == 2 %}★★
+              {% elif comment.rank == 3 %}★★★
+              {% elif comment.rank == 4 %}★★★★
+              {% else %}★★★★★
+              {% endif %}
+            </div>
+            <div class='d-inline-block'>
+              {{ comment.user }} - {{ comment.content }}
+            </div>
+            {% if request.user == comment.user %}
+              <form action="{% url 'movies:comments_delete' movie.pk comment.pk %}" method="POST" style="display:inline">
+                {% csrf_token %}
+                <button class="btn btn-link text-secondary">
+                  <i class="fa-regular fa-trash-can"></i>
+                </button>
+              </form>
+              {% endif %}
+          </li>
+        {% empty %}
+          <li>평점이 없습니다.</li>
+        {% endfor %}
+      </ul>
+      <hr>
+      {% if request.user.is_authenticated %}
+        <form action="{% url 'movies:comments_create' movie.pk %}" method="POST">
+          {% csrf_token %}
+          {{ comment_form }}
+          <input type="submit" class="btn btn-success" value="SUBMIT">
+        </form>
+      {% else %}
+        <a href="{% url 'accounts:login' %}">평점을 남기시려면 로그인하세요.</a>
+      {% endif %}
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}search.html{% endblock %}
+
+{% block content %}
+<h1>Movie List</h1>
+<br>
+
+<form action="." method="post">
+    {% csrf_token %}
+    {{ form.as_table }} <!-- form을 테이블 형식으로 표시, 여기서 form은 views에서 넘겨준 PostSearchForm 객체임-->
+    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+</form>
+
+<br/><br/>
+
+{% if object_list %}
+    {% for movie in object_list %}
+        <h2><a href='http://127.0.0.1:8000/movies/{{movie.id}}/'>{{ movie.title }}</a></h2>
+        {{ movie.release_date|date:"N d, Y" }}
+        <p>{{ movie.overview }}</p>
+    {% endfor %}
+{% elif search_term %}<!-- 검색란이 공란인지 확인-->
+    <b><i>검색한 단어 {{ search_term }}가 존재하지 않습니다!</i></b>
+{% endif %}
+{% endblock %}
