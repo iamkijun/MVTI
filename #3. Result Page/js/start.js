@@ -18,6 +18,7 @@ function setResult(){
 
   var resultImg = document.createElement('img');
   const imgDiv = document.querySelector('#resultImg');
+  // var imgURL = 'img/image-' + point + '.png';
   var imgURL = 'img/image-' + point + '.png';
   resultImg.src = imgURL;
   resultImg.alt = point;
@@ -26,6 +27,23 @@ function setResult(){
 
   const resultDesc = document.querySelector('.resultDesc');
   resultDesc.innerHTML = infoList[point].desc;
+
+  const resultReco = document.querySelector('.resultReco');
+  resultReco.innerHTML = infoList[point].reco;
+
+  var resultInfo = document.createElement('a');
+  const infoDiv = document.querySelector('.resultInfo');
+  resultInfo.href = infoList[point].info
+  infoDiv.appendChild(resultInfo)
+
+  var posterImg = document.createElement('img');
+  const posterDiv = document.querySelector('#posterImg');
+  var posterURL = infoList[point].imag;
+  posterImg.src = posterURL
+  posterImg.alt = infoList[point].name
+  posterImg.classList.add('img-fluid');
+  posterDiv.appendChild(posterImg);
+
 }
 
 function goResult(){

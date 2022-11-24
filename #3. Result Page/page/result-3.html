@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
-    <  <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="author" content="MVTI">
-      <meta name="keywords" content="MVTI 성격유형">
-      <meta name="description" content="MVTI 성격유형">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MVTI 테스트</title>
+    <meta name="author" content="MVTI Test">
+    <meta name="keywords" content="MVTI 성격유형">
+    <meta name="description" content="MVTI 성격유형">
 
-      <!-- sns share -->
-      <meta property="og:url" content="https://www.naver.com/" />
-      <meta property="og:title" content="MVTI Test" />
-      <meta property="og:type" content="website" />
-      <meta property="og:image" content="../img/image-7.png" />
-      <meta property="og:description" content="MVTI 성격유형" />
+    <!-- sns share -->
+    <meta property="og:url" content="https://mvti-test.netlify.app" />
+    <meta property="og:title" content="MVTI Test" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../img/image-7.png" />
+    <meta property="og:description" content="MVTI 성격유형" />
 
-      <!--favicon-->
-      <link rel="shortcut icon" href="../img/favicon.ico">
-      <link rel="apple-touch-icon-precomposed" href="../img/favicon.ico" />
+    <!--favicon-->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="../img/favicon.ico" />
 
-      <title>MVTI Test</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-      <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
-      <!-- <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet"> -->
-      <link rel="stylesheet" href="../css/default.css">
-      <link rel="stylesheet" href="../css/result.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/qna.css">
+    <link rel="stylesheet" href="./css/animation.css">
+    <link rel="stylesheet" href="./css/result.css">
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/${VERSION}/kakao.min.js"
+    integrity="${INTEGRITY_VALUE}" crossorigin="anonymous"></script>
+    <script>
+      Kakao.init('d545a33ad19609e510ebebd80c3673e1');
+      Kakao.isInitialized();
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+      @font-face {
+          font-family: 'LINESeedKR-Bd';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+          font-weight: 700;
+          font-style: normal;
+      }
+    </style>
   </head>
   <body>
     <section id="shareResult" class="mx-auto my-5 py-5 px-3">
@@ -36,6 +51,11 @@
       </div>
       <div class="resultDesc">
         <p>ISFP, 호기심 많은 예술가, 성인군자형. 영화속 캐릭터 가운데 해리포터와 유사합니다!</p>
+      </div>
+      <div>
+        <p>개발자 추천 ISFP가 좋아하는 영화는 '해리 포터와 죽음의 성물 1'입니다!</p>
+        <a href="https://www.themoviedb.org/movie/12444-harry-potter-and-the-deathly-hallows-part-1?language=ko">영화 자세히 보기</a>
+        <img src="https://www.themoviedb.org/t/p/original/lOXvz8HrgOkp7AXGQp1APKeZqag.jpg" alt="죽음의 성물" style="height:250px">
       </div>
       <script type="text/javascript">
         function moveHome(){
